@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from routers import users
 from database import supabase
-from routers import projects
+from routers import projects, files, chats
 
 
 # ==============================
@@ -53,6 +53,9 @@ async def all_users():
 
 app.include_router(users.router)
 app.include_router(projects.router)
+app.include_router(files.router)
+app.include_router(chats.router)
+
 
 if __name__ == "__main__":
     import uvicorn
